@@ -148,7 +148,7 @@ const BookPage = () => {
         <Header />
 
             {/* Book Details Section */}
-            <div className="flex bg-[#f5e9e0] p-10 rounded-lg shadow-lg  max-w-8xl mx-auto font-sans">
+            <div className="flex bg-[#E1ECFE] p-10 rounded-lg shadow-lg  max-w-8xl mx-auto font-sans">
                 {/* Book Image */}
                 <div className="w-1/3 flex justify-center items-start">
                     <img

@@ -18,6 +18,7 @@ import For_U from './components/forU/for_U'
 import ContactUs from './pages/contact_us/contact_us'
 import AllBooks from './pages/all_books/allBooks'
 import UserFav from './components/user_tools/userFav'
+import Test from './test/test'
 // import Test from './test/test'
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
         <Route path="/contact_us" element={<ContactUs/>} />
         <Route path="/all_books" element={<AllBooks/>} />
         <Route path="/user/favorites" element={<UserFav/>} />
-        {/* <Route path="/test" element={<Test/>} /> */}
+        <Route path="/test" element={<Test/>} />
       </Routes>
       </BrowserRouter>
       </UserProvider>

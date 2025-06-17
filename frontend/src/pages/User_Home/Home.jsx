@@ -10,6 +10,7 @@ import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import FeaturedCategoric from "../../components/FeaturedCategorie/Featured_categorie";
 import NewReleases from "../../components/FeaturedCategorie/NewReleases";
+import Test from "../../test/test";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -18,10 +19,9 @@ function UserHome() {
       {/* header section */}
       <Header />
 
-
-      {/* section1 */}
+<Test/>
+      {/* section1
       <div className="flex flex-col md:flex-row justify-between items-center bg-[#f4eae4] min-h-screen px-6 md:px-20 py-10 relative overflow-hidden">
-        {/* Text content */}
         <div className="max-w-4xl text-center md:text-left mt-20 md:mt-0 ">
           <h1 className="text-6xl tracking-widest">
             <span className="mr-8 my-5">B e c a u s e</span>
@@ -45,7 +45,7 @@ function UserHome() {
           )}
         </div>
 
-        {/* Books image */}
+       
         <div className="mt-12 md:mt-0">
           <img
             src="../../../public/books.png"
@@ -53,7 +53,7 @@ function UserHome() {
             className="w-[600px] md:w-[350px] lg:w-[500px] "
           />
         </div>
-      </div>
+      </div> */}
       {/* end sec1 */}
 
 
@@ -74,7 +74,7 @@ function UserHome() {
 
 
       {/* sec4 */}
-      <section class="bg-[#f4eae4] ">
+      <section class="bg-[#F4EEE0] ">
         <div class="container lg:px-[150px] py-10 mx-auto ">
           <div class="lg:-mx-6 lg:flex lg:items-center">
             <img
