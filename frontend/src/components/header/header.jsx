@@ -32,9 +32,9 @@ function Header() {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <a href="#">
-                        <img
-                            className="w-auto h-12 sm:h-12"
-                            src="../../../public/logo.png"
+                        <img 
+                            className="text-2xl sm:h-12"
+                            src="../public/Logo.png"
                             alt=""
                         />
                     </a>
@@ -49,7 +49,7 @@ function Header() {
                             </li>
                             <li>
                                 <a href="#" className="text-[#314157] text-xl hover:bg-gray-100 px-3 py-2 rounded-md">
-                                   <Link to={"/Categories"} >c a t e g o r i e s  </Link>
+                                   <Link to={"/Categories"} >A b o u t  U s   </Link>
                                 </a>
                             </li>
                             {user && (

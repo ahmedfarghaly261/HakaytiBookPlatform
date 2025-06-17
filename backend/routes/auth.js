@@ -11,10 +11,11 @@ router.delete('/users/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete user' });
   }
 });
+
 // GET /api/auth/users (admin only)
 router.get('/users', async (req, res) => {
   try {
-    const users = await User.find({}, '-password'); // Exclude password
+    const users = await User.find({}, '-password');   
     res.json(users);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch users' });

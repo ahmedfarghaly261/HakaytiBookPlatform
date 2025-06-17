@@ -163,7 +163,7 @@ const BookPage = () => {
                     {/* Title + Rating */}
                     <div>
                         <h1 className="text-3xl font-semibold text-gray-800 flex items-center gap-2">
-                            {book?.title || "Dune"}
+                            <h1>{book?.title || "Dune"} </h1>
                             {user && (
                                 <FaHeart
                                     className={`text-lg cursor-pointer transition ${isFav ? 'text-red-500' : 'text-gray-400 hover:text-red-400'}`}
@@ -176,7 +176,7 @@ const BookPage = () => {
                             {"★".repeat(4)}
                             <span className="text-gray-500 ml-1 text-sm">(75)</span>
                         </div>
-                        <p className="text-gray-500 font-semibold mt-1">{book?.author || "Frank Herbert"}</p>
+                        <p className="text-gray-500 font-semibold text-xl mt-1">BY:{book?.author || "Frank Herbert"}</p>
                     </div>
 
                     {/* Summary */}
@@ -190,10 +190,14 @@ const BookPage = () => {
 
                     {/* Buttons */}
                     <div className="flex items-center gap-4">
-                        <HiOutlineDocumentText className="text-2xl text-gray-700" />
+                        {/* <HiOutlineDocumentText className="text-2xl text-gray-700" />
                         <MdGraphicEq className="text-2xl text-gray-700" />
                         <FaPlay className="text-white bg-gray-800 p-2 rounded-full w-10 h-10" />
-                        <span className="text-sm text-gray-600">sample</span>
+                        <span className="text-sm text-gray-600">sample</span> */}
+
+                        
+
+                        
                     </div>
 
 
