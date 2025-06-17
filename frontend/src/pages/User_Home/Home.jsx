@@ -18,6 +18,7 @@ function UserHome() {
       {/* header section */}
       <Header />
 
+
       {/* section1 */}
       <div className="flex flex-col md:flex-row justify-between items-center bg-[#f4eae4] min-h-screen px-6 md:px-20 py-10 relative overflow-hidden">
         {/* Text content */}
@@ -54,9 +55,14 @@ function UserHome() {
         </div>
       </div>
       {/* end sec1 */}
-      <FeaturedCategoric />
+
 
       {/* sec2 */}
+      <FeaturedCategoric />
+      {/* end sec2 */}
+
+
+      {/* sec 3 */}
       <div className="mx-10 my-10">
         <h2 className="text-5xl  font-bold mt-10 mb-5 mx-5 ">
           T r e n d i n g
@@ -64,8 +70,10 @@ function UserHome() {
         </h2>
         <CardList />
       </div>
-      {/* end sec2 */}
+      {/* end sec3 */}
 
+
+      {/* sec4 */}
       <section class="bg-[#f4eae4] ">
         <div class="container lg:px-[150px] py-10 mx-auto ">
           <div class="lg:-mx-6 lg:flex lg:items-center">
@@ -102,19 +110,23 @@ function UserHome() {
           </div>
         </div>
       </section>
+      {/* end sec4 */}
+      
 
+      {/* sec5 */}
       <NewReleases />
-      {/* sec3 */}
+      {/* end sec5 */}
 
-      {/* end sec3 */}
 
-      {/* sec4 */}
+
+      {/* sec6 */}
       <section>
         <For_U />
       </section>
-      {/* end sec5 */}
+      {/* end sec6 */}
 
-      {/* sec5 */}
+
+      {/* sec7 */}
       <section className="bg-[#f4eae4] mb-8 mt-8 w-[90%] lg:text-center mx-auto rounded-2xl">
         <div className="container px-6 py-10 mx-auto">
           <div className="text-center">
@@ -169,7 +181,8 @@ function UserHome() {
           </div>
         </div>
       </section>
-      {/* end sec5 */}
+      {/* end sec7 */}
+
 
       {/* footer */}
       <Footer />

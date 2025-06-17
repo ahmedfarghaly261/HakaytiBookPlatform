@@ -71,34 +71,38 @@ function Header() {
                     {/* Desktop right icons */}
                     <div className="hidden lg:flex lg:items-center space-x-4">
                         <div className="relative" ref={notifRef}>
-                            <button
+                          {user && (
+                            <>
+                              <button
                                 className="text-gray-600 hover:text-gray-700 focus:outline-none"
                                 aria-label="show notifications"
                                 onClick={() => setShowNotifications((prev) => !prev)}
-                            >
+                              >
                                 <svg
-                                    className="w-6 h-6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  className="w-6 h-6"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
                                 >
-                                    <path
-                                        d="M15 17H20L18.6 15.6C18.2 15.2 18 14.7 18 14.2V11C18 8.4 16.3 6.2 14 5.3V5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5V5.3C7.7 6.2 6 8.4 6 11V14.2C6 14.7 5.8 15.2 5.4 15.6L4 17H9V18C9 19.7 10.3 21 12 21C13.7 21 15 19.7 15 18V17Z"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                    />
+                                  <path
+                                    d="M15 17H20L18.6 15.6C18.2 15.2 18 14.7 18 14.2V11C18 8.4 16.3 6.2 14 5.3V5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5V5.3C7.7 6.2 6 8.4 6 11V14.2C6 14.7 5.8 15.2 5.4 15.6L4 17H9V18C9 19.7 10.3 21 12 21C13.7 21 15 19.7 15 18V17Z"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                  />
                                 </svg>
-                            </button>
-                            {showNotifications && (
+                              </button>
+                              {showNotifications && (
                                 <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                                    <div className="p-4 border-b font-semibold text-gray-700">Notifications</div>
-                                    <ul className="max-h-60 overflow-y-auto">
-                                        <li className="px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer">No new notifications</li>
-                                    </ul>
+                                  <div className="p-4 border-b font-semibold text-gray-700">Notifications</div>
+                                  <ul className="max-h-60 overflow-y-auto">
+                                    <li className="px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer">No new notifications</li>
+                                  </ul>
                                 </div>
-                            )}
+                              )}
+                            </>
+                          )}
                         </div>
 
                         {!user ? (
@@ -213,46 +217,47 @@ function Header() {
 
                         {/* Mobile icons */}
                         <div className="mt-4 flex items-center justify-end space-x-4">
+                          {user && (
                             <div className="relative" ref={notifRef}>
-                                <button
-                                    className="text-gray-600 hover:text-gray-700 focus:outline-none"
-                                    aria-label="show notifications"
-                                    onClick={() => setShowNotifications((prev) => !prev)}
+                              <button
+                                className="text-gray-600 hover:text-gray-700 focus:outline-none"
+                                aria-label="show notifications"
+                                onClick={() => setShowNotifications((prev) => !prev)}
+                              >
+                                <svg
+                                  className="w-6 h-6"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
                                 >
-                                    <svg
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M15 17H20L18.6 15.6C18.2 15.2 18 14.7 18 14.2V11C18 8.4 16.3 6.2 14 5.3V5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5V5.3C7.7 6.2 6 8.4 6 11V14.2C6 14.7 5.8 15.2 5.4 15.6L4 17H9V18C9 19.7 10.3 21 12 21C13.7 21 15 19.7 15 18V17Z"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                        />
-                                    </svg>
-                                </button>
-                                {showNotifications && (
-                                    <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                                        <div className="p-4 border-b font-semibold text-gray-700">Notifications</div>
-                                        <ul className="max-h-60 overflow-y-auto">
-                                            <li className="px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer">No new notifications</li>
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-
-                            <button type="button" className="flex items-center focus:outline-none">
-                                <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-                                        className="object-cover w-full h-full"
-                                        alt="avatar"
-                                    />
+                                  <path
+                                    d="M15 17H20L18.6 15.6C18.2 15.2 18 14.7 18 14.2V11C18 8.4 16.3 6.2 14 5.3V5C14 3.9 13.1 3 12 3C10.9 3 10 3.9 10 5V5.3C7.7 6.2 6 8.4 6 11V14.2C6 14.7 5.8 15.2 5.4 15.6L4 17H9V18C9 19.7 10.3 21 12 21C13.7 21 15 19.7 15 18V17Z"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                  />
+                                </svg>
+                              </button>
+                              {showNotifications && (
+                                <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                  <div className="p-4 border-b font-semibold text-gray-700">Notifications</div>
+                                  <ul className="max-h-60 overflow-y-auto">
+                                    <li className="px-4 py-2 text-gray-600 hover:bg-gray-100 cursor-pointer">No new notifications</li>
+                                  </ul>
                                 </div>
-                            </button>
+                              )}
+                            </div>
+                          )}
+                          <button type="button" className="flex items-center focus:outline-none">
+                            <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                              <img
+                                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                                className="object-cover w-full h-full"
+                                alt="avatar"
+                              />
+                            </div>
+                          </button>
                         </div>
                     </div>
                 )}
