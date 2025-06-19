@@ -79,11 +79,10 @@ function CardList() {
                 setBooks(res.data.filter(book => book.trainingId));
             })
             .catch(() => setBooks([]));
-    }, []);    return (
-        <div className="w-full px-8 relative group">
+    }, []);    return (        <div className="w-full px-4 sm:px-6 md:px-8 relative group">
             <style>{swiperStyles}</style>
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F4EEE0] to-transparent z-10"></div>
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F4EEE0] to-transparent z-10"></div><Swiper
+            <div className="absolute inset-y-0 left-0 w-12 sm:w-16 md:w-24 bg-gradient-to-r from-[#F4EEE0] to-transparent z-10"></div>
+            <div className="absolute inset-y-0 right-0 w-12 sm:w-16 md:w-24 bg-gradient-to-l from-[#F4EEE0] to-transparent z-10"></div><Swiper
                 modules={[Navigation, Autoplay, Pagination]}
                 navigation={{
                     nextEl: '.swiper-button-next',
@@ -104,35 +103,43 @@ function CardList() {
                 centeredSlides={false}
                 allowTouchMove={true}
                 grabCursor={true}
-                spaceBetween={20}                breakpoints={{
-                    320: {
-                        slidesPerView: 1.2,
-                        spaceBetween: 15
+                spaceBetween={20}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    390: {
+                        slidesPerView: 1,
+                        spaceBetween: 12
                     },
                     480: {
-                        slidesPerView: 2.2,
-                        spaceBetween: 20
+                        slidesPerView: 3,
+                        spaceBetween: 15
+                    },
+                    640: {
+                        slidesPerView: 3.5,
+                        spaceBetween: 15
                     },
                     768: {
-                        slidesPerView: 3.2,
+                        slidesPerView: 4,
                         spaceBetween: 20
                     },
                     1024: {
-                        slidesPerView: 4.2,
+                        slidesPerView: 5,
                         spaceBetween: 20
                     },
                     1280: {
-                        slidesPerView: 5.2,
+                        slidesPerView: 6,
                         spaceBetween: 20
                     }
                 }}
                 className="py-8"
             >
                 {books.map((book) => (
-                    <SwiperSlide key={book._id}>
-                        <div className="p-2">
+                    <SwiperSlide key={book._id}>                <div className="p-1.5 sm:p-2">
                             <Link to={`/book/${book._id}`} className="block transform transition duration-300 hover:scale-[1.02]">
-                                <div className="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                                <div className="relative bg-white rounded-lg sm:rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
                                     <div className="absolute top-2 right-2 z-10">
                                         <span className="px-2 py-0.5 bg-[#E74C3C] text-white text-[10px] font-semibold rounded-full shadow-sm">
                                             KINDLE

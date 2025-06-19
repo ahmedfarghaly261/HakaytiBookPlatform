@@ -46,6 +46,78 @@ const BookPage = () => {
     const [bookModel, setBookModel] = useState('');
     const [isFav, setIsFav] = useState(false);
     const [suggestions, setSuggestions] = useState([]);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
+    // Audio player state
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [audioProgress, setAudioProgress] = useState(0);
+
+    // Login Modal Component
+    const LoginPromptModal = () => (
+        <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center ${showLoginModal ? '' : 'hidden'}`}>
+            <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Login Required</h3>
+                <p className="text-gray-600 mb-6">You must be logged in to listen to audiobooks.</p>
+                <div className="flex justify-end gap-4">
+                    <button
+                        onClick={() => setShowLoginModal(false)}
+                        className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                    >
+                        Cancel
+                    </button>
+                    <Link
+                        to="/login"
+                        className="px-6 py-2 bg-[#3498DB] text-white rounded-lg hover:bg-[#2980B9] transition-colors"
+                    >
+                        Log In
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+
+    // Audio Player Component
+    const AudioPlayer = () => (
+        <div className="bg-gray-900 text-white p-4 rounded-lg mt-6">
+            <div className="flex items-center gap-4 mb-4">
+                <button
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    className="w-12 h-12 flex items-center justify-center bg-[#3498DB] rounded-full hover:bg-[#2980B9] transition-colors"
+                >
+                    {isPlaying ? (
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                    ) : (
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                        </svg>
+                    )}
+                </button>
+                <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm">0:00</span>
+                        <div className="flex-1 h-2 bg-gray-700 rounded-full">
+                            <div
+                                className="h-full bg-[#3498DB] rounded-full"
+                                style={{ width: `${audioProgress}%` }}
+                            ></div>
+                        </div>
+                        <span className="text-sm">30:00</span>
+                    </div>
+                    <div className="flex gap-4">
+                        <button className="text-sm text-gray-400 hover:text-white transition-colors">
+                            1x Speed
+                        </button>
+                        <button className="text-sm text-gray-400 hover:text-white transition-colors">
+                            Chapter 1
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
     // Fetch suggestions (other books)
     useEffect(() => {
         axios.get('http://localhost:3001/api/books')
@@ -186,17 +258,31 @@ const BookPage = () => {
                             {book?.description || `Dune is set in the distant future amidst a feudal interstellar
                             society in which various noble houses control planetary fiefs. It tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis. While the planet is an inhospitable and sparsely populated desert wasteland, it is the only source of melange, or "spice", a drug that extends life and enhances mental abilities...`}
                         </p>
+                    </div>                    {/* Audio Section */}
+                    <div className="mt-6">
+                        {user ? (
+                            <AudioPlayer />
+                        ) : (
+                            <div className="flex flex-col items-start gap-4">
+                                <button
+                                    onClick={() => setShowLoginModal(true)}
+                                    className="flex items-center gap-2 px-6 py-3 bg-[#3498DB] text-white rounded-lg hover:bg-[#2980B9] transition-colors"
+                                >
+                                    <FaPlay className="w-4 h-4" />
+                                    Listen to Audiobook
+                                </button>
+                                <p className="text-sm text-gray-600">
+                                    Log in to access the full audiobook and more features.
+                                </p>
+                            </div>
+                        )}
                     </div>
 
-                    {/* Buttons */}
-                    <div className="flex items-center gap-4">
-                        {/* <HiOutlineDocumentText className="text-2xl text-gray-700" />
-                        <MdGraphicEq className="text-2xl text-gray-700" />
-                        <FaPlay className="text-white bg-gray-800 p-2 rounded-full w-10 h-10" />
-                        <span className="text-sm text-gray-600">sample</span> */}
+                    {/* Login Modal */}
+                    <LoginPromptModal />
 
-                        
-
+                    {/* Other Buttons */}
+                    <div className="flex items-center gap-4 mt-6">
                         
                     </div>
 
@@ -316,6 +402,10 @@ const BookPage = () => {
                     </form>
                 )}
             </div>
+
+            <LoginPromptModal />
+            <AudioPlayer />
+
         <Footer/>
         </>
     );

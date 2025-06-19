@@ -8,6 +8,8 @@ import { UserContext } from '../context/UserContext';
 export default function Test() {
      const { user } = useContext(UserContext);
   return (
+    <>
+   
     <section className="bg-[#E1ECFE] w-full py-16">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left Content */}
@@ -39,5 +41,42 @@ Alive Like Never Before.
         </div>
       </div>
     </section>
+
+
+    {/* section1
+      <div className="flex flex-col md:flex-row justify-between items-center bg-[#f4eae4] min-h-screen px-6 md:px-20 py-10 relative overflow-hidden">
+        <div className="max-w-4xl text-center md:text-left mt-20 md:mt-0 ">
+          <h1 className="text-6xl tracking-widest">
+            <span className="mr-8 my-5">B e c a u s e</span>
+            <span className="mr-8">E v e r y</span> <br />
+            <span>
+              W o r d <span className="mr-8 ml-8">D e s e r v e s </span>{" "}
+            </span>
+            <br /> <span className="mr-8">t o </span> B e H e a r d
+          </h1>
+          <p className="mt-6 text-lg tracking-wider text-[#1e2d3d] font-medium">
+            From Page To Voice, Stories Come
+            <br />
+            Alive Like Never Before.
+          </p>
+          {!user && (
+            <Link to="/login">
+              <button className="mt-8 px-8 py-3 bg-[#1e2d3d] text-white text-lg font-bold rounded-md shadow hover:bg-[#16222f] transition">
+                Login
+              </button>
+            </Link>
+          )}
+        </div>
+
+       
+        <div className="mt-12 md:mt-0">
+          <img
+            src="../../../public/books.png"
+            alt="Books"
+            className="w-[600px] md:w-[350px] lg:w-[500px] "
+          />
+        </div>
+      </div> */}
+     </>
   );
 }

@@ -33,8 +33,8 @@ function Header() {
                     {/* Logo */}
                     <a href="#">
                         <img 
-                            className="text-2xl sm:h-12"
-                            src="../public/Logo.png"
+                            className="text-xl sm:h-12 w-[110px] h-[70px] object-cover"
+                            src="../../../public/newone.png"
                             alt=""
                         />
                     </a>
