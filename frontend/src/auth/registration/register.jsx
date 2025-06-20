@@ -61,8 +61,17 @@ function Register() {
                                 <form className="max-w-md mx-auto border-black" onSubmit={handleSubmit}>
                                     <h1 className='text-3xl font-300 text-[#2d3d54]'>Create an account</h1>
                                     <br />
-                                    {message && <div className="text-green-600 mb-2">{message}</div>}
-                                    {error && <div className="text-red-600 mb-2">{error}</div>}
+                                  {message && (
+                                    <div className="mb-6 p-4 bg-green-500/20 border border-green-500 rounded-lg">
+                                        <p className="text-green-900 text-sm font-bold">{message}</p>
+                                    </div>
+                                )}
+                                {error && (
+                                    <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded-lg">
+                                        <p className="text-red-900 text-sm font-bold">{error}</p>
+                                    </div>
+                                )}
+
                                     <div className="relative z-0 w-full mb-5 group">
                                         <input
                                             type="text"

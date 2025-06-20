@@ -23,12 +23,13 @@ function For_U() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-3">
                     {books.map((book) => (
                         <Link key={book._id} to={`/book/${book._id}`} className="transform transition duration-300 hover:scale-102">
-                            <div className="relative bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                            <div className="relative bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full" data-aos="fade-down">
                                 <div className="absolute top-2 right-2 z-10">
                                     <span className="px-2 py-0.5 bg-[#E74C3C] text-white text-[10px] font-semibold rounded-full shadow-sm">
                                         KINDLE
                                     </span>
-                                </div>                                <div className="relative overflow-hidden group">
+                                </div>                                
+                                <div className="relative overflow-hidden group">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
                                     <img
@@ -73,7 +74,7 @@ function For_U() {
 
                                     <div className="mt-auto">
                                         <div className="flex items-center justify-between">
-                                            <div className="flex items-end gap-1">
+                                            {/* <div className="flex items-end gap-1">
                                                 <span className="text-base font-bold text-[#2C3E50]">
                                                     ${book.price ? book.price.toFixed(2) : '0.00'}
                                                 </span>
@@ -82,7 +83,7 @@ function For_U() {
                                                         ${book.oldPrice.toFixed(2)}
                                                     </span>
                                                 )}
-                                            </div>
+                                            </div> */}
                                             <button className="flex items-center gap-0.5 px-2 py-1 bg-[#3498DB] text-white rounded-full text-xs font-medium hover:bg-[#2980B9] transition-colors duration-300">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />

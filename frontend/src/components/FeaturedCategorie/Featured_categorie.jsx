@@ -6,8 +6,12 @@ import {
   FaUserEdit,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+
 function FeaturedCategoric() {
   const { user } = useContext(UserContext);
   const categories = [
@@ -37,6 +41,11 @@ function FeaturedCategoric() {
       bg: "bg-pink-50",
     },
   ];
+
+   // aos Animation
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <section className="px-8 py-10">
       <div className="flex items-center justify-between mb-8">
@@ -51,9 +60,10 @@ function FeaturedCategoric() {
         )}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"  data-aos="zoom-in-down">
         {categories.map((cat, index) => (
-          <div
+          <div  
+             data-aos="fade-down"
             key={index}
             className={`${cat.bg} p-6 rounded-lg flex flex-col items-start gap-4 transition hover:scale-105 hover:shadow-lg duration-200`}
           >

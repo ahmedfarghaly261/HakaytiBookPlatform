@@ -5,16 +5,23 @@ import Header from "../../components/header/header";
 import p1 from "../../images/Picture.png";
 import p2 from "../../images/Picture2.png";
 import p3 from "../../images/Picture3.png";
-import React, { useContext } from "react";
+import React, { use, useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import FeaturedCategoric from "../../components/FeaturedCategorie/Featured_categorie";
 import NewReleases from "../../components/FeaturedCategorie/NewReleases";
 import Test from "../../test/test";
 import image from "../../assets/image.png"; // Adjust the path as necessary
+import Aos from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 function UserHome() {
   const { user } = useContext(UserContext);
+
+  // aos Animation
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <>
       {/* header section */}
@@ -23,7 +30,7 @@ function UserHome() {
       {/* hero sec1 */}
       <section className="bg-[#E1ECFE] w-full py-16">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-          <div className="max-w-xl mb-10 md:mb-0">
+          <div className="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
             <h1 className="text-5xl font-serif font-semibold text-gray-900 leading-tight">
               Because Every <br /> Word Deserves to Be Heard
             </h1>
@@ -39,8 +46,8 @@ function UserHome() {
             )}
           </div>
 
-          <div className="relative w-full md:w-auto">
-            <div className=" w-[680px] h-[px]">
+          <div className="relative w-full md:w-auto" data-aos="fade-up-left">
+            <div className=" lg:w-[680px] h-[px]">
               <img src={image} alt="" className="w-15" />
             </div>
           </div>
@@ -55,7 +62,9 @@ function UserHome() {
       {/* sec3 */}
       <div className="flex flex-col md:flex-row gap-6 p-8 bg-[#fdfaf4]">
         {/* Left Banner */}
-        <div className="flex-1 bg-[#f5b9b9] shadow-lg rounded-lg pl-8 flex items-center justify-between hover:scale-105 transition-transform duration-500">
+        <div 
+        data-aos="fade-down-right"
+        className="flex-1 bg-[#f5b9b9] shadow-lg rounded-lg pl-8 flex items-center justify-between hover:scale-105 transition-transform duration-500">
           <div>
             <p className="text-sm font-semibold tracking-wide text-white uppercase mb-2">
               New Collection
@@ -75,7 +84,9 @@ function UserHome() {
         </div>
 
         {/* Right Banner */}
-        <div className="flex-1 bg-[#a8e1d6] rounded-lg pl-8 flex items-center shadow-lg justify-between hover:scale-105 transition-transform duration-500">
+        <div 
+        data-aos="fade-down-left"
+        className="flex-1 bg-[#a8e1d6] rounded-lg pl-8 flex items-center shadow-lg justify-between hover:scale-105 transition-transform duration-500">
           <div>
             <p className="text-sm font-semibold tracking-wide text-white uppercase mb-2">
               new collection
@@ -97,7 +108,7 @@ function UserHome() {
       {/* end sec3 */}
 
       {/* sec 4 */}
-      <div className="mx-10 my-10">
+      <div className="mx-10 my-10" data-aos="zoom-in-up">
         <h2 className="text-5xl  font-bold mt-10 mb-5 mx-5 ">
           T r e n d i n g
           <div className="w-[200px] h-1 bg-black mt-5 mb-5 rounded"></div>
@@ -110,13 +121,17 @@ function UserHome() {
       <section class="bg-[#F4EEE0] ">
         <div class="container lg:px-[150px] py-10 mx-auto ">
           <div class="lg:-mx-6 lg:flex lg:items-center">
-            <img
+            <div className="" data-aos="fade-left">
+               <img
+              
               class="object-cover object-center lg:w-[500px] lg:mx-5 w-[25rem] mx-11 h-96 rounded-lg lg:h-[30rem]"
               src="public/booksSec.jpg"
               alt=""
             />
+            </div>
+           
 
-            <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0 mx-10 my-4">
+            <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0 mx-10 my-4" data-aos="fade-right">
               <h1 class="text-2xl font-semibold text-gray-800  lg:text-3xl lg:w-96">
                 Get over a 100 free books
               </h1>
