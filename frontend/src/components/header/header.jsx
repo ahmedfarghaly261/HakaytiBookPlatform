@@ -187,7 +187,7 @@ function Header() {
                 <div className="relative w-8 h-8 bg-[#e3f2fd] border-2 border-sky-600 flex justify-center items-center rounded-full shadow">
                   <span className="text-base font-bold text-sky-700 select-none">
                     {user && user.username && user.username.length > 0
-                      ? user.username.slice(0, 2).toUpperCase()
+                      ? user.username.slice(0, 1).toUpperCase()
                       : user && user.email
                       ? user.email.slice(0, 2).toUpperCase()
                       : ""}
@@ -330,7 +330,7 @@ function Header() {
                   <div className="relative w-8 h-8 bg-[#e3f2fd] border-2 border-sky-600 flex justify-center items-center rounded-full shadow">
                     <span className="text-base font-bold text-sky-700 select-none">
                       {user && user.username && user.username.length > 0
-                        ? user.username.slice(0, 2).toUpperCase()
+                        ? user.username.slice(0, 1).toUpperCase()
                         : user && user.email
                         ? user.email.slice(0, 2).toUpperCase()
                         : ""}

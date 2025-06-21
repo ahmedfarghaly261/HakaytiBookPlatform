@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
     if (!user) {
       return res.status(400).json({ error: 'Invalid email or password' });
     }
-    // In production, use hashed passwords! This is plain for demo only.
+    
     if (user.password !== password) {
       return res.status(400).json({ error: 'Invalid email or password' });
     }

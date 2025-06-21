@@ -114,12 +114,12 @@ function CardList() {
                         spaceBetween: 12
                     },
                     480: {
-                        slidesPerView: 3,
-                        spaceBetween: 15
+                        slidesPerView: 1,
+                        spaceBetween: 12
                     },
                     640: {
-                        slidesPerView: 3.5,
-                        spaceBetween: 15
+                        slidesPerView: 1,
+                        spaceBetween: 12
                     },
                     768: {
                         slidesPerView: 4,

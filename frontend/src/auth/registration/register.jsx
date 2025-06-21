@@ -9,6 +9,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,18 +19,24 @@ function Register() {
             setError("Passwords do not match");
             return;
         }
+        setLoading(true);
         try {
             const response = await axios.post("http://localhost:3001/api/auth/register", {
                 username,
                 email,
                 password,
-
             });
-            setMessage(response.data.message || "Registration successful!");
+            setTimeout(() => {
+                setLoading(false);
+                setMessage(response.data.message || "Registration successful!");
+            }, 1200);
         } catch (err) {
-            setError(
-                err.response?.data?.error || "Registration failed. Please try again."
-            );
+            setTimeout(() => {
+                setLoading(false);
+                setError(
+                    err.response?.data?.error || "Registration failed. Please try again."
+                );
+            }, 1200);
         }
     };
 
@@ -39,7 +46,7 @@ function Register() {
                 <div className="container mx-auto flex justify-center items-center">
                     <a href="#">
                            <img
-                            className="h-12 w-[140px] object-cover h-16"
+                            className="w-[140px] object-cover h-16"
                             src="../../../public/newone.png"
                             alt="Logo"
                         />
@@ -125,7 +132,19 @@ function Register() {
                                         <label htmlFor="confirmPassword" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#2d3d54] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
                                     </div>
 
-                                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#2d3d54] dark:hover:bg-[#2d3d54] dark:focus:ring-[#2d3d54]">Submit</button>
+                                    <button
+                                        type="submit"
+                                        className="w-full px-6 py-3 text-white bg-gradient-to-r from-[#2d3d54] to-[#1e2a3a] rounded-lg hover:from-blue-800 hover:to-[#1e2a3a] focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium text-base shadow-lg flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+                                        disabled={loading}
+                                    >
+                                        {loading ? (
+                                            <svg className="animate-spin w-5 h-5 mr-2 text-white" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                            </svg>
+                                        ) : null}
+                                        {loading ? 'Registering...' : 'Submit'}
+                                    </button>
                                     <span className='float-end'> already have an account?  
                                         <Link to={"/login"} className="underline p-2"> login</Link>
                                     </span>
@@ -141,7 +160,7 @@ function Register() {
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
                 <img
-                            className="h-12 w-[140px] object-cover h-16"
+                            className="w-[140px] object-cover h-16"
                             src="../../../public/newone.png"
                             alt="Logo"
                         />

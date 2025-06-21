@@ -2,18 +2,15 @@ import CardList from "../../components/card/card";
 import Footer from "../../components/footer/footer";
 import For_U from "../../components/forU/for_U";
 import Header from "../../components/header/header";
-import p1 from "../../images/Picture.png";
-import p2 from "../../images/Picture2.png";
-import p3 from "../../images/Picture3.png";
 import React, { use, useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import FeaturedCategoric from "../../components/FeaturedCategorie/Featured_categorie";
 import NewReleases from "../../components/FeaturedCategorie/NewReleases";
 import Test from "../../test/test";
-import image from "../../assets/image.png"; // Adjust the path as necessary
+import image from "../../assets/image.png"; 
 import Aos from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css"; 
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -122,12 +119,12 @@ function UserHome() {
         <div class="container lg:px-[150px] py-10 mx-auto ">
           <div class="lg:-mx-6 lg:flex lg:items-center">
             <div className="" data-aos="fade-left">
-               <img
-              
-              class="object-cover object-center lg:w-[500px] lg:mx-5 w-[25rem] mx-11 h-96 rounded-lg lg:h-[30rem]"
-              src="public/booksSec.jpg"
-              alt=""
-            />
+            <img
+  className="object-cover object-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[500px] h-80 sm:h-96 lg:h-[30rem] mx-auto rounded-lg"
+  src="public/booksSec.jpg"
+  alt="Books Section"
+/>
+
             </div>
            
 

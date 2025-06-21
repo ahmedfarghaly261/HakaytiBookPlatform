@@ -403,8 +403,9 @@ const BookPage = () => {
                 )}
             </div>
 
+
             <LoginPromptModal />
-            <AudioPlayer />
+            {user && <AudioPlayer />}
 
         <Footer/>
         </>
