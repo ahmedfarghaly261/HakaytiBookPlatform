@@ -35,7 +35,7 @@ export default function NewReleases() {
         {/* Left Side Promo */}
         <div className="bg-pink-50 p-6 rounded-lg flex flex-col items-start justify-between">
           <img
-            src="https://m.media-amazon.com/images/I/61mK4BlKcbL._AC_UF1000,1000_QL80_.jpg"
+            src="public/img1.png"
             alt="Promo Book"
             className="w-full mb-4"
           />

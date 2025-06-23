@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 
 function AllBooks() {
@@ -24,6 +25,7 @@ function AllBooks() {
     "History",
     "Fantasy",
     "Biography",
+    "Romance",
     "Other",
   ];
 
@@ -78,7 +80,7 @@ function AllBooks() {
             />
           </div>
         </div>
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center">
           {filteredBooks.map((book) => (
             <Link key={book._id} to={`/book/${book._id}`}>
               <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300 min-w-[160px] sm:min-w-[180px] md:min-w-[180px] lg:w-[210px] mx-2 mt-2 group border border-blue-50 hover:border-blue-200">
@@ -147,6 +149,7 @@ function AllBooks() {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

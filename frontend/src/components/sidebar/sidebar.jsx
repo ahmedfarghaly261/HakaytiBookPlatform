@@ -52,6 +52,7 @@ const Sidebar = () => {
         "History",
         "Fantasy",
         "Biography",
+        "Romance",
         "Other"
     ];
 
@@ -154,8 +155,8 @@ const Sidebar = () => {
                 <a href="#" className=" ">
                    <center> 
                         <img
-                            className="w-[120px] h-[50px] sm:h-[50px]"
-                            src="../../../public/logo.png"
+                            className="w-[120px] h-[30px] sm:h-[50px] object-cover"
+                            src="public/newone.png"
                             alt="Logo"
                         />
                     </center>
@@ -170,7 +171,7 @@ const Sidebar = () => {
                     />
                     <h4 className="mx-2 mt-2 font-medium text-black">Admin</h4>
                     <p className="mx-2 mt-1 text-sm font-medium text-gray-600">
-                        Ahmed@admin.com
+                        admin@admin.com
                     </p>
                     <p className="mx-2 mt-1 text-sm font-medium text-gray-600">Admin</p>
                 </div>

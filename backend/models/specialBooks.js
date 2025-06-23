@@ -38,6 +38,7 @@ const specialBooks = new mongoose.Schema({
       'History',
       'Fantasy',
       'Biography',
+      'Romance',
       'Other'
     ],
     required: true,

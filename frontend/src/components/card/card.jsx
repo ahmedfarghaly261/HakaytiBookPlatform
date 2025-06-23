@@ -141,8 +141,21 @@ function CardList() {
                             <Link to={`/book/${book._id}`} className="block transform transition duration-300 hover:scale-[1.02]">
                                 <div className="relative bg-white rounded-lg sm:rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
                                     <div className="absolute top-2 right-2 z-10">
-                                        <span className="px-2 py-0.5 bg-[#E74C3C] text-white text-[10px] font-semibold rounded-full shadow-sm">
-                                            KINDLE
+                                        <span
+                                            className={
+                                                `px-2 py-0.5 text-white text-[10px] font-semibold rounded-full shadow-sm ` +
+                                                (book.Category === 'Romance' ? 'bg-pink-400' :
+                                                book.Category === 'Fiction' ? 'bg-blue-500' :
+                                                book.Category === 'Non-fiction' ? 'bg-green-500' :
+                                                book.Category === 'Science' ? 'bg-purple-500' :
+                                                book.Category === 'History' ? 'bg-yellow-600' :
+                                                book.Category === 'Fantasy' ? 'bg-indigo-500' :
+                                                book.Category === 'Biography' ? 'bg-orange-500' :
+                                                book.Category === 'Other' ? 'bg-gray-500' :
+                                                'bg-gray-400')
+                                            }
+                                        >
+                                            {book.Category}
                                         </span>
                                     </div>
                                     <div className="relative overflow-hidden">

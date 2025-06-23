@@ -126,7 +126,7 @@ function AdminPage() {
               {/* Left side - Chart */}
               <div className="flex-1 border-b lg:border-b-0 lg:border-r border-gray-100 pb-6 lg:pb-0 lg:pr-6">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-gray-700 text-xl font-medium">Total Revenue</h2>
+                  <h2 className="text-gray-700 text-xl font-medium">Total </h2>
                   <button className="text-gray-400">
                     <MoreVertical size={20} />
                   </button>
@@ -140,7 +140,7 @@ function AdminPage() {
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 rounded-full bg-cyan-400 mr-2"></div>
-                      <span className="text-gray-600">2023</span>
+                      <span className="text-gray-600">2025</span>
                     </div>
                   </div>
                 </div>
@@ -224,7 +224,7 @@ function AdminPage() {
                   </div>
                 </div>
 
-                <div className="mb-4 text-center text-gray-600">{companyGrowth}% Company Growth</div>
+                <div className="mb-4 text-center text-gray-600">{companyGrowth}% platform Growth</div>
 
                 {/* Revenue Comparison */}
                 <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
@@ -243,7 +243,7 @@ function AdminPage() {
                       <div className="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 mr-2">
                         <div className="w-4 h-4 border-2 border-cyan-600 rounded"></div>
                       </div>
-                      <div className="text-sm text-gray-500">2023</div>
+                      <div className="text-sm text-gray-500">2025</div>
                     </div>
                     <div className="text-center font-semibold">${revenue2023}k</div>
                   </div>
@@ -330,7 +330,9 @@ function AdminPage() {
                         <tr key={book._id} className="bg-white transition-all duration-500 hover:bg-gray-50">
                           <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{book._id}</td>
                           <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{book.title}</td>
-                          <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{book.Category}</td>
+                          <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">
+                            {book.Category}
+                          </td>
                           <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">{book.author}</td>
                           <td className="p-5 ">
                             <div className="flex items-center gap-1">

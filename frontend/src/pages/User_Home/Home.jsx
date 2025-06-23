@@ -7,10 +7,10 @@ import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import FeaturedCategoric from "../../components/FeaturedCategorie/Featured_categorie";
 import NewReleases from "../../components/FeaturedCategorie/NewReleases";
-import Test from "../../test/test";
-import image from "../../assets/image.png"; 
+// import Test from "../../test/test";
+import image from "../../assets/image.png";
 import Aos from "aos";
-import "aos/dist/aos.css"; 
+import "aos/dist/aos.css";
 
 function UserHome() {
   const { user } = useContext(UserContext);
@@ -20,12 +20,12 @@ function UserHome() {
     Aos.init({ duration: 2000 });
   }, []);
   return (
-    <>
+    <div className="overflow-x-hidden w-full">
       {/* header section */}
       <Header />
 
       {/* hero sec1 */}
-      <section className="bg-[#E1ECFE] w-full py-16">
+      <section className="bg-[#E1ECFE] w-full py-16 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
             <h1 className="text-5xl font-serif font-semibold text-gray-900 leading-tight">
@@ -57,16 +57,17 @@ function UserHome() {
       {/* end sec2 */}
 
       {/* sec3 */}
-      <div className="flex flex-col md:flex-row gap-6 p-8 bg-[#fdfaf4]">
-        {/* Left Banner */}
-        <div 
-        data-aos="fade-down-right"
-        className="flex-1 bg-[#f5b9b9] shadow-lg rounded-lg pl-8 flex items-center justify-between hover:scale-105 transition-transform duration-500">
-          <div>
+      <div className="flex flex-col md:flex-row gap-6 p-4 sm:p-6 md:p-8 bg-[#fdfaf4] overflow-x-hidden">
+        {/* First Card */}
+        <div
+          data-aos="fade-down-right"
+          className="flex-1 bg-[#f5b9b9] shadow-lg rounded-lg px-6 py-8 flex flex-col md:flex-row items-center justify-between hover:scale-105 transition-transform duration-500"
+        >
+          <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm font-semibold tracking-wide text-white uppercase mb-2">
               New Collection
             </p>
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6">
               new releases
             </h2>
             <button className="px-6 py-2 rounded-full border-2 border-white text-white font-medium hover:bg-white hover:text-[#f5b9b9] transition">
@@ -76,19 +77,20 @@ function UserHome() {
           <img
             src="public/imageSecP.png"
             alt="Woman Reading"
-            className="hidden md:block w-[500px] "
+            className="w-full max-w-xs sm:max-w-sm md:max-w-[500px]"
           />
         </div>
 
-        {/* Right Banner */}
-        <div 
-        data-aos="fade-down-left"
-        className="flex-1 bg-[#a8e1d6] rounded-lg pl-8 flex items-center shadow-lg justify-between hover:scale-105 transition-transform duration-500">
-          <div>
+        {/* Second Card */}
+        <div
+          data-aos="fade-down-left"
+          className="flex-1 bg-[#a8e1d6] shadow-lg rounded-lg px-6 py-8 flex flex-col md:flex-row items-center justify-between hover:scale-105 transition-transform duration-500"
+        >
+          <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm font-semibold tracking-wide text-white uppercase mb-2">
-              new collection
+              New Collection
             </p>
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6">
               Kids’ Books 📚
             </h2>
             <button className="px-6 py-2 rounded-full border-2 border-white text-white font-medium hover:bg-white hover:text-[#a8e1d6] transition">
@@ -98,14 +100,15 @@ function UserHome() {
           <img
             src="public/imageSecB.png"
             alt="Flying Books"
-            className="hidden md:block w-1/2 "
+            className="w-full max-w-xs sm:max-w-sm md:max-w-[250px]"
           />
         </div>
       </div>
+
       {/* end sec3 */}
 
       {/* sec 4 */}
-      <div className="mx-10 my-10" data-aos="zoom-in-up">
+      <div className="mx-10 my-10 overflow-x-hidden" data-aos="zoom-in-up">
         <h2 className="text-5xl  font-bold mt-10 mb-5 mx-5 ">
           T r e n d i n g
           <div className="w-[200px] h-1 bg-black mt-5 mb-5 rounded"></div>
@@ -115,20 +118,21 @@ function UserHome() {
       {/* end sec4 */}
 
       {/* sec5 */}
-      <section class="bg-[#F4EEE0] ">
+      <section class="bg-[#F4EEE0] overflow-x-hidden ">
         <div class="container lg:px-[150px] py-10 mx-auto ">
           <div class="lg:-mx-6 lg:flex lg:items-center">
             <div className="" data-aos="fade-left">
-            <img
-  className="object-cover object-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[500px] h-80 sm:h-96 lg:h-[30rem] mx-auto rounded-lg"
-  src="public/booksSec.jpg"
-  alt="Books Section"
-/>
-
+              <img
+                className="object-cover object-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[500px] h-80 sm:h-96 lg:h-[30rem] mx-auto rounded-lg"
+                src="public/booksSec.jpg"
+                alt="Books Section"
+              />
             </div>
-           
 
-            <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0 mx-10 my-4" data-aos="fade-right">
+            <div
+              class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0 mx-10 my-4"
+              data-aos="fade-right"
+            >
               <h1 class="text-2xl font-semibold text-gray-800  lg:text-3xl lg:w-96">
                 Get over a 100 free books
               </h1>
@@ -168,7 +172,7 @@ function UserHome() {
       {/* end sec8 */}
 
       {/* sec9 */}
-      <div className="relative bg-[#e8f0ff] px-4 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden rounded-lg">
+      <div className="relative bg-[#e8f0ff] px-4 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden rounded-lg overflow-x-hidden">
         {/* Background decorations */}
         <img
           src="/finalSecLeft.png"
@@ -192,10 +196,9 @@ function UserHome() {
       </div>
       {/* end sec9 */}
 
-
       {/* footer */}
       <Footer />
-    </>
+    </div>
   );
 }
 export default UserHome;

@@ -47,37 +47,41 @@ function FeaturedCategoric() {
     Aos.init({ duration: 2000 });
   }, []);
   return (
-    <section className="px-8 py-10">
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Featured Categories
-        </h2>
-        {user && (
-          <div className="text-sm font-medium text-gray-600 flex items-center gap-1 cursor-pointer hover:underline">
-            <Link to="/all_books">All Categories</Link>
-            <span className="text-lg">→</span>
-          </div>
-        )}
+    <section className="px-4 sm:px-6 md:px-8 py-10">
+  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+    <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
+      Featured Categories
+    </h2>
+    {user && (
+      <div className="text-sm font-medium text-gray-600 flex items-center gap-1 cursor-pointer hover:underline">
+        <Link to="/all_books">All Categories</Link>
+        <span className="text-lg">→</span>
       </div>
+    )}
+  </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"  data-aos="zoom-in-down">
-        {categories.map((cat, index) => (
-          <div  
-             data-aos="fade-down"
-            key={index}
-            className={`${cat.bg} p-6 rounded-lg flex flex-col items-start gap-4 transition hover:scale-105 hover:shadow-lg duration-200`}
-          >
-            {cat.icon}
-            <div>
-              <h3 className="text-base font-semibold text-gray-800">
-                {cat.name}
-              </h3>
-              <p className="text-sm text-gray-500">Shop Now</p>
-            </div>
-          </div>
-        ))}
+  <div
+    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6"
+    data-aos="zoom-in-down"
+  >
+    {categories.map((cat, index) => (
+      <div
+        data-aos="fade-down"
+        key={index}
+        className={`${cat.bg} p-4 sm:p-6 rounded-lg flex flex-col items-start gap-3 transition hover:scale-105 hover:shadow-lg duration-200`}
+      >
+        {cat.icon}
+        <div>
+          <h3 className="text-sm sm:text-base font-semibold text-gray-800">
+            {cat.name}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-500">Shop Now</p>
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
+
   );
 }
 export default FeaturedCategoric;

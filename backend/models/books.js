@@ -26,6 +26,7 @@ const books = new mongoose.Schema({
       'History',
       'Fantasy',
       'Biography',
+      'Romance',
       'Other'
     ],
     required: true,
