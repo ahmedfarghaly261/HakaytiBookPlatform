@@ -37,47 +37,43 @@ A vibrant platform empowering authors to create and sell personalized storybooks
    ```bash
    git clone https://github.com/ahmedfarghaly261/HakaytiBookPlatform.git
    cd HakaytiBookPlatform
-Install dependencies
 
-bash
-Copy
-Edit
+##Install dependencies
+
+#bash
 npm install
+
+
 Configure environment variables
 Duplicate .env.example to .env and populate:
 
 ini
-Copy
-Edit
 MONGO_URI=your_mongo_connection_string
 JWT_SECRET=your_jwt_secret
 STRIPE_SECRET_KEY=your_stripe_secret
-Run in development mode
 
-bash
-Copy
-Edit
+
+Run in development mode
+##bash
 npm run dev
 Access the app
 
-Frontend: http://localhost:3000
+##Frontend: http://localhost:3000
 
-API: http://localhost:3001/api/v1
+##API: http://localhost:3001/api/v1
 
-🧪 Running Tests & Quality Checks
-Execute tests
+##🧪 Running Tests & Quality Checks
 
+##Execute tests
 bash
-Copy
-Edit
 npm test
+
 Lint & fix files
 
 bash
-Copy
-Edit
 npm run lint
-📃 API Overview
+
+##📃 API Overview
 All endpoints are prefixed with /api/v1.
 Here are the key ones:
 
@@ -116,23 +112,23 @@ Author dashboard
 
 Payment flow
 
-🤝 Contributing
+##🤝 Contributing
 Contributions appreciated! To get started:
 
-Fork the repo
+#Fork the repo
 
-Create a feature branch: git checkout -b feat/my-awesome-feature
+#Create a feature branch: git checkout -b feat/my-awesome-feature
 
-Commit changes: git commit -m "Add new feature"
+#Commit changes: git commit -m "Add new feature"
 
-Push: git push origin feat/my-awesome-feature
+#Push: git push origin feat/my-awesome-feature
 
-Submit a Pull Request
+#Submit a Pull Request
 
-Check out [CONTRIBUTING.md] for style guides and CI requirements.
+#Check out [CONTRIBUTING.md] for style guides and CI requirements.
 
-📄 License
+##📄 License
 Distributed under the MIT License. See [LICENSE.md] for details.
 
-🧭 Support
+##🧭 Support
 For questions or help, please open an issue or contact Ahmed Farghaly.
