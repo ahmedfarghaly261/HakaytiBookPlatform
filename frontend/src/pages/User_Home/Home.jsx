@@ -2,23 +2,42 @@ import CardList from "../../components/card/card";
 import Footer from "../../components/footer/footer";
 import For_U from "../../components/forU/for_U";
 import Header from "../../components/header/header";
-import React, { use, useContext, useEffect } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import FeaturedCategoric from "../../components/FeaturedCategorie/Featured_categorie";
 import NewReleases from "../../components/FeaturedCategorie/NewReleases";
 // import Test from "../../test/test";
 import image from "../../assets/image.png";
+import preloaderGif from "../../assets/preloader.gif";
+import preloader2 from "../../assets/prelod2.gif";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 function UserHome() {
   const { user } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
 
   // aos Animation
   useEffect(() => {
     Aos.init({ duration: 2000 });
+
+    //  loading 
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#fff] w-full">
+        <div className="flex flex-col items-center">
+          <img src={preloader2} alt="Loading..." className="w-32 h-36 mb-4 object-cover" />
+          <span className="text-lg font-semibold text-gray-700">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-x-hidden w-full">
       {/* header section */}

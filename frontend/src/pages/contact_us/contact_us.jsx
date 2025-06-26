@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { FaWhatsapp } from "react-icons/fa";
@@ -6,8 +6,14 @@ import { FaFacebook } from "react-icons/fa";
 import { IoMdMailOpen } from "react-icons/io";
 
 const ContactUs = () => {
+    const [pageLoading, setPageLoading] = useState(true);
     const [loading, setLoading] = useState(false);
     const [sent, setSent] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setPageLoading(false), 1000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,8 +28,14 @@ const ContactUs = () => {
     return (
         <>
             <Header />
-            <section className='bg-[#E1ECFE] py-8 px-4 sm:px-6 lg:px-8'>
-                <div className="mx-4 md:mx-16">
+            <section className='bg-[#E1ECFE] py-8 px-4 sm:px-6 lg:px-8 relative flex flex-col items-center justify-center min-h-[70vh]'>
+                {pageLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/70 z-20">
+                        <div className="w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                )}
+                {!pageLoading && (
+                <div className="mx-4 md:mx-16 w-full">
                     <div className="container px-6 py-12 mx-auto bg-white/90 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-md">
                         <div>
                             <p className="font-medium text-blue-500">Contact us</p>
@@ -130,6 +142,7 @@ const ContactUs = () => {
                         </div>
                     </div>
                 </div>
+                )}
             </section>
             <br />
             <Footer />

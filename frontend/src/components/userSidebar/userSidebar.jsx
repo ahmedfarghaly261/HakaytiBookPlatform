@@ -81,15 +81,18 @@ const UserSidebar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to={"/Categories"} className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            <Link to={"/all_books"} className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                                 <MdOutlineBook className="text-lg" />
-                                                Categories
+                                                all books
                                             </Link>
                                         </li>
                                         <li>
                                             <a href="#" className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                                <Link>
                                                 <FaUserFriends className="text-lg" />
-                                                Writers
+                                                contact us
+                                                </Link>
+                                                
                                             </a>
                                         </li>
                                     </ul>

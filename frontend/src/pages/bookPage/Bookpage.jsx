@@ -10,6 +10,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import axios from "axios";
+import preloader2 from "../../assets/prelod2.gif";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Header from "../../components/header/header";
@@ -33,6 +34,10 @@ const FeedbackCard = ({ name, rating, comment }) => (
 
 
 const BookPage = () => {
+  const [loading, setLoading] = useState(true);
+ 
+
+
     const { id } = useParams();
     const [book, setBook] = useState(null);
     const { user } = useContext(UserContext);
@@ -51,6 +56,9 @@ const BookPage = () => {
     // Audio player state
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioProgress, setAudioProgress] = useState(0);
+
+
+
 
     // Login Modal Component
     const LoginPromptModal = () => (
@@ -117,6 +125,19 @@ const BookPage = () => {
             </div>
         </div>
     );
+
+
+   //  loading 
+ useEffect(() => {
+  const timer = setTimeout(() => setLoading(false), 1500);
+  return () => clearTimeout(timer);
+}, []);
+
+
+
+
+
+
 
     // Fetch suggestions (other books)
     useEffect(() => {
@@ -214,6 +235,20 @@ const BookPage = () => {
         setSubmitting(false);
     };
 
+      if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#fff] w-full">
+        <div className="flex flex-col items-center">
+          <img src={preloader2} alt="Loading..." className="w-32 h-36 mb-4 object-cover" />
+          <span className="text-lg font-semibold text-gray-700">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+    
+    
+    
     return (
         <>
 

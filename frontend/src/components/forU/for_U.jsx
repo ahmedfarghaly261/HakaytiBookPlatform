@@ -20,7 +20,7 @@ function For_U() {
                     F O R &nbsp; Y O U
                     <div className="w-[160px] h-0.5 bg-black mt-4 mb-4 rounded bg-gradient-to-r from-[#2C3E50] to-[#3498DB]"></div>
                 </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-14 px-14">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 px-14">
                     {books.map((book) => (
                         <Link key={book._id} to={`/book/${book._id}`} className="transform transition duration-300 hover:scale-102">
                             <div className="relative rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full bg-white" data-aos="fade-down">
