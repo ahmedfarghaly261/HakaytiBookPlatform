@@ -61,7 +61,7 @@ Frontend: http://localhost:3000
 
 API: http://localhost:3001/api/v1
 
-🧪 Running Tests & Quality Checks
+##🧪 Running Tests & Quality Checks
 Execute tests
 bash
 Copy
