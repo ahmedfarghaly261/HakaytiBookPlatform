@@ -29,120 +29,86 @@ A vibrant platform empowering authors to create and sell personalized storybooks
 | Deployment  | Docker + GitHub Actions   |
 
 ---
+.
 
-## 🔧 Quick Start (Locally)
+## Features
 
-### 1. Clone the repo  
-```bash
-git clone https://github.com/ahmedfarghaly261/HakaytiBookPlatform.git
-cd HakaytiBookPlatform
+### User Authentication & Management
+- Register and login with username, email, and password
+- Session management using local storage
+- Admin-only endpoints for user management
+- View all users (admin)
+- Delete users (admin)
 
-2. Install dependencies
-bash
-Copy
-Edit
+### Book Browsing & Interaction
+- Browse all books and featured categories
+- View trending, new releases, and special books
+- Add books to favorites and saved lists
+- Comment on books
+- See book details and cover images
+
+### User Experience
+- Responsive design for desktop and mobile
+- Sidebar, header, and modal components
+- Notification bell (visible only to logged-in users)
+- User profile with avatar and personal info
+- Dashboard and user home page
+
+### Admin Features
+- View and manage all registered users
+- View and manage all books
+- Delete users
+- Add & delete books 
+
+### Technology Stack
+- **Frontend:** React, Vite, Tailwind CSS
+- **Backend:** Node.js, Express.js, MongoDB (Mongoose)
+
+## Project Structure
+- `frontend/` — React app (UI, pages, components, context)
+- `backend/` — Express API (routes, models, db)
+
+## Getting Started
+
+### 1. Clone the repository
+```
+git clone <repo-url>
+cd BookPlatform
+```
+
+### 2. Install dependencies
+
+#### Backend
+```
+cd backend
 npm install
-3. Configure environment variables
-Duplicate .env.example to .env and update the values:
+```
 
-ini
-Copy
-Edit
-MONGO_URI=your_mongo_connection_string
-JWT_SECRET=your_jwt_secret
-STRIPE_SECRET_KEY=your_stripe_secret
-4. Run in development mode
-bash
-Copy
-Edit
+#### Frontend
+```
+cd ../frontend
+npm install
+```
+
+### 3. Run the application
+
+#### Start Backend Server
+```
+cd backend
+npm start
+```
+The backend will run by default on [http://localhost:5000](http://localhost:5000)
+
+#### Start Frontend Dev Server
+```
+cd frontend
 npm run dev
-5. Access the app
-Frontend: http://localhost:3000
+```
+The frontend will run by default on [http://localhost:5173](http://localhost:5173)
 
-API: http://localhost:3001/api/v1
+---
 
-##🧪 Running Tests & Quality Checks
-Execute tests
-bash
-Copy
-Edit
-npm test
-Lint & fix files
-bash
-Copy
-Edit
-npm run lint
-📃 API Overview
-All endpoints are prefixed with /api/v1.
-Here are the key routes:
-
-POST /auth/register – Register a new user
-
-POST /auth/login – Login and receive JWT token
-
-GET /books – Browse all available books
-
-GET /books/:id – Get details for a specific book
-
-POST /books (Author-only) – Create a new book listing
-
-PUT /books/:id (Author-only) – Update a book
-
-POST /checkout – Initiate payment via Stripe
-
-GET /admin/users (Admin-only) – List and manage users
-
-Full request/response examples available in docs/api.md.
-
-🎯 Screenshots
-Add visuals here (recommended):
-
-📸 User-facing homepage
-
-📸 Author dashboard
-
-📸 Payment flow
-
-🤝 Contributing
-We welcome contributions! Here's how:
-
-Fork the repo
-
-Create a branch:
-
-bash
-Copy
-Edit
-git checkout -b feat/my-awesome-feature
-Commit changes:
-
-bash
-Copy
-Edit
-git commit -m "Add new feature"
-Push to GitHub:
-
-bash
-Copy
-Edit
-git push origin feat/my-awesome-feature
-Submit a Pull Request
-
-See CONTRIBUTING.md for coding conventions and CI setup.
-
-📄 License
-This project is licensed under the MIT License.
-See LICENSE.md for details.
-
-🧭 Support
-Need help?
-Open an issue or contact Ahmed Farghaly directly.
-
-vbnet
-Copy
-Edit
-
-Let me know if you'd like me to:
+Feel free to contribute or customize for your own book platform!
 - Add GitHub badges (build, license, etc.)
 - Insert sample `.env.example` file
 - Include placeholder screenshots
