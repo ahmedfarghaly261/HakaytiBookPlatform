@@ -11,6 +11,10 @@ function Login() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [forgotMsg, setForgotMsg] = useState("");
+  const [forgotErr, setForgotErr] = useState("");
   const navigate = useNavigate();
   const { login } = useContext(UserContext);
 
@@ -47,6 +51,23 @@ function Login() {
     }
   };
 
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    setForgotMsg("");
+    setForgotErr("");
+    try {
+      const res = await axios.post(
+        "http://localhost:3001/api/auth/forgot-password",
+        { email: forgotEmail }
+      );
+      setForgotMsg(
+        res.data.message || "If this email exists, a reset link has been sent."
+      );
+    } catch (err) {
+      setForgotErr(err.response?.data?.error || "Failed to send reset email.");
+    }
+  };
+
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -63,16 +84,17 @@ function Login() {
             />
           </a>
         </div>
-      </nav>{" "}
+      </nav>
       <div className="bg-gradient-to-br from-[#E1ECFE] to-[#c5d8f9] min-h-screen overflow-hidden flex items-center justify-center py-10">
-        <div 
-        data-aos="zoom-in"
-        className="container max-w-6xl mx-auto px-4 lg:px-[100px]">
+        <div
+          data-aos="zoom-in"
+          className="container max-w-6xl mx-auto px-4 lg:px-[100px]"
+        >
           <div className="lg:flex lg:items-center lg:gap-10 bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(225,236,254,0.4)] overflow-hidden">
             <div className="hidden lg:block lg:w-1/2 relative group ">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10 transition-opacity group-hover:opacity-80"></div>
               <img
-                 data-aos="fade-down"
+                data-aos="fade-down"
                 className="w-[550px] h-[30rem] object-cover transform transition-transform duration-700 group-hover:scale-105"
                 src="../../../public/loginImg.jpg"
                 alt="Login Visual"
@@ -86,12 +108,11 @@ function Login() {
                 </p>
               </div>
             </div>
-            <div 
-             data-aos="fade-up"
-            className="mt-8 lg:mt-0 lg:w-1/2 p-8">
-             
+            <div
+              data-aos="fade-up"
+              className="mt-8 lg:mt-0 lg:w-1/2 p-8"
+            >
               <form
-             
                 className="bg-white/80 backdrop-blur-md rounded-xl p-8 shadow-[0_8px_30px_rgb(225,236,254,0.5)]"
                 onSubmit={handleSubmit}
               >
@@ -183,12 +204,13 @@ function Login() {
                     {loading ? "Signing In..." : "Sign In"}
                   </button>
                   <div className="flex items-center justify-between">
-                    <a
-                      href="#"
-                      className="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+                    <button
+                      type="button"
+                      className="text-sm text-gray-600 hover:text-gray-800 transition-colors underline"
+                      onClick={() => setShowForgot(true)}
                     >
                       Forgot Password?
-                    </a>
+                    </button>
                     <a
                       href="/register"
                       className="text-sm text-[#2d3d54] hover:text-[#1e2a3a] font-medium transition-colors"
@@ -202,6 +224,40 @@ function Login() {
           </div>
         </div>
       </div>
+      {/* Forgot Password Modal */}
+      {showForgot && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 shadow-lg w-full max-w-md relative">
+            <button
+              className="absolute top-2 right-2 text-gray-500"
+              onClick={() => setShowForgot(false)}
+            >
+              &times;
+            </button>
+            <h3 className="text-xl font-bold mb-4">Forgot Password</h3>
+            <form onSubmit={handleForgotPassword}>
+              <input
+                type="email"
+                className="w-full px-4 py-2 border rounded mb-4"
+                placeholder="Enter your email"
+                value={forgotEmail}
+                onChange={(e) => setForgotEmail(e.target.value)}
+                required
+              />
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded"
+              >
+                Send Reset Link
+              </button>
+            </form>
+            {forgotMsg && (
+              <div className="mt-2 text-green-600">{forgotMsg}</div>
+            )}
+            {forgotErr && <div className="mt-2 text-red-600">{forgotErr}</div>}
+          </div>
+        </div>
+      )}
       <footer class="rounded-lg shadow-sm text-white  m-4">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
           <div class="sm:flex sm:items-center sm:justify-between">

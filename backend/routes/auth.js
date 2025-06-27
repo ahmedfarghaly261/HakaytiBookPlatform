@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const { handleForgotPassword, handleResetPassword } = require('./forgotPasswordController');
 
 // DELETE /api/auth/users/:id (admin only)
 router.delete('/users/:id', async (req, res) => {
@@ -51,5 +52,11 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
+
+// POST /api/auth/forgot-password
+router.post('/forgot-password', handleForgotPassword);
+
+// POST /api/auth/reset-password/:token
+router.post('/reset-password/:token', handleResetPassword);
 
 module.exports = router;
