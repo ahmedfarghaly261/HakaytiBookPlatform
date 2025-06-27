@@ -14,11 +14,14 @@ const transporter = nodemailer.createTransport({
 
 
 async function sendResetEmail(email, token) {
-  const resetUrl = `http://localhost:5173/reset-password/${token}`; // Adjust frontend URL as needed
+  const resetUrl = `http://localhost:5173/reset-password/${token}`; 
   await transporter.sendMail({
     to: email,
     subject: 'Password Reset',
-    html: `<p>You requested a password reset.</p><p>Click <a href="${resetUrl}">here</a> to reset your password. This link is valid for 1 hour.</p>`
+    html: `
+      <h1>Password Reset Request</h1>
+      <img src="http://localhost:5173/public/newone.png" alt="BookPlatform logo, stylized open book with blue and gold accents, conveying a welcoming and trustworthy atmosphere" style="width: 100px; height: auto;">
+      <p>Click <a href="${resetUrl}">here</a> to reset your password. This link is valid for 1 hour.</p>`
   });
 }
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -12,6 +13,8 @@ function Register() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,10 +47,9 @@ function Register() {
       }, 1200);
     }
   };
-    useEffect(() => {
-      Aos.init({ duration: 2000 });
-    }, []);
-  
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
     <>
@@ -68,7 +70,7 @@ function Register() {
           <div className="container lg:px-[150px] py-10 mx-auto ">
             <div className="lg:-mx-6 lg:flex lg:items-center">
               <img
-              data-aos="fade-up-right"
+                data-aos="fade-up-right"
                 className="hidden lg:block object-cover object-center lg:w-[600px] lg:mx-5 mx-11 h-96 lg:h-[30rem] rounded-[3rem]"
                 src="../../../public/register.png"
                 alt=""
@@ -76,7 +78,7 @@ function Register() {
 
               <div className="mt-8 lg:w-1/2 lg:px-6 lg:mt-0 mx-10 my-4">
                 <form
-                data-aos="fade-up-left"
+                  data-aos="fade-up-left"
                   className="max-w-md mx-auto border-black"
                   onSubmit={handleSubmit}
                 >
@@ -135,10 +137,10 @@ function Register() {
                   </div>
                   <div className="relative z-0 w-full mb-5 group">
                     <input
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-[#2d3d54] dark:border-gray-600 dark:focus:border-[#2d3d54] focus:outline-none focus:ring-0 focus:border-[#2d3d54] peer"
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-[#2d3d54] dark:border-gray-600 dark:focus:border-[#2d3d54] focus:outline-none focus:ring-0 focus:border-[#2d3d54] peer pr-10"
                       placeholder=" "
                       required
                       value={password}
@@ -150,13 +152,21 @@ function Register() {
                     >
                       Password
                     </label>
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-lg"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                      tabIndex={-1}
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
                   <div className="relative z-0 w-full mb-5 group">
                     <input
-                      type="password"
+                      type={showConfirmPassword ? "text" : "password"}
                       name="confirmPassword"
                       id="confirmPassword"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-[#2d3d54] dark:border-gray-600 dark:focus:border-[#2d3d54] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-[#2d3d54] dark:border-gray-600 dark:focus:border-[#2d3d54] focus:outline-none focus:ring-0 focus:border-blue-600 peer pr-10"
                       placeholder=" "
                       required
                       value={confirmPassword}
@@ -168,6 +178,14 @@ function Register() {
                     >
                       Confirm password
                     </label>
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-lg"
+                      onClick={() => setShowConfirmPassword((prev) => !prev)}
+                      tabIndex={-1}
+                    >
+                      {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
 
                   <button
