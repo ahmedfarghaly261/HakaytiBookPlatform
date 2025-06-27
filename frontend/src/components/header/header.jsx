@@ -12,7 +12,9 @@ import {
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
   const notifRef = useRef();
+  const lastScrollY = useRef(0);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -32,9 +34,31 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showNotifications]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY < 50) {
+        setShowHeader(true);
+        lastScrollY.current = window.scrollY;
+        return;
+      }
+      if (window.scrollY > lastScrollY.current) {
+        setShowHeader(false); // scrolling down
+      } else {
+        setShowHeader(true); // scrolling up
+      }
+      lastScrollY.current = window.scrollY;
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <nav className="relative bg-white shadow">
-      <div className="container px-9 py-6 mx-auto">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow transition-transform duration-300  ${
+        showHeader ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="container px-9 py-6 mx-auto  ">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#">
@@ -290,7 +314,6 @@ function Header() {
                 <li>
                   <Link to="/registration" className="mt-2 block w-full">
                     <span className="relative inline-flex rounded-lg items-center justify-start py-4 pl-8 pr-16 overflow-hidden font-semibold border-2 border-[#E1ECFE] text-black transition-all duration-150 ease-in-out hover:pl-10 hover:pr-6 hover:bg-[#E1ECFE] group">
-                    
                       <span className="absolute left-4 -translate-x-2 group-hover:translate-x-0 duration-200">
                         <svg
                           className="w-5 h-5 text-[#2d3d54]"

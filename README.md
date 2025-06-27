@@ -1,6 +1,6 @@
 # 📚 HakaytiBookPlatform
 
-A vibrant platform empowering authors to create and sell personalized storybooks. Readers can customize characters, titles, and create memorable, tailor-made experiences. Includes author dashboards, payment integration, and admin management—all in one intuitive system.
+Empowering authors to publish immersive, personalized audiobooks—while giving listeners the freedom to browse, customize, and enjoy captivating stories anytime, anywhere. With intuitive features like author dashboards,  and full admin control, the platform offers a seamless journey from creation to listening. Whether you're crafting tales or exploring new worlds by sound, it's where stories come to life and voices are truly heard.
 
 ---
 
@@ -19,14 +19,13 @@ A vibrant platform empowering authors to create and sell personalized storybooks
 
 | Layer       | Technology                |
 |-------------|---------------------------|
-| Frontend    | Vue 3 + Vite + Tailwind CSS |
+| Frontend    | react +Vite +Tailwind CSS |
 | Backend     | Node.js + Express         |
 | Database    | MongoDB                   |
 | Auth        | JWT-based sessions        |
-| Payments    | Stripe API (+ PayPal)     |
 | Testing     | Jest + Supertest          |
 | Linting     | ESLint + Prettier         |
-| Deployment  | Docker + GitHub Actions   |
+| Deployment  | GitHub Actions            |
 
 ---
 .

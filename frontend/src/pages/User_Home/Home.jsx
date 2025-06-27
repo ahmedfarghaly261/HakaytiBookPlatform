@@ -42,9 +42,12 @@ function UserHome() {
     <div className="overflow-x-hidden w-full">
       {/* header section */}
       <Header />
-
+{/* <br />
+<br />
+<br />
+<br /> */}
       {/* hero sec1 */}
-      <section className="bg-[#E1ECFE] w-full py-16 overflow-x-hidden">
+      <section className="bg-[#E1ECFE] w-full py-16 overflow-x-hidden mt-20">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
             <h1 className="text-5xl font-serif font-semibold text-gray-900 leading-tight">
@@ -76,8 +79,15 @@ function UserHome() {
       {/* end sec2 */}
 
       {/* sec3 */}
-      <div className="flex flex-col md:flex-row gap-6 p-4 sm:p-6 md:p-8 bg-[#fdfaf4] overflow-x-hidden">
-        {/* First Card */}
+        <h1 className="text-4xl font-bold ml-7 mt-8 mb-2 text-gray-800 relative inline-block">
+           Coming Soon
+          <span
+            className="block h-1 bg-[#302f2f] rounded mt-2"
+            style={{ width: "70%" }}
+          ></span>
+        </h1>
+        <div className="flex flex-col md:flex-row gap-6 p-4 sm:p-6 md:p-8 bg-[#fdfaf4] overflow-x-hidden">
+          {/* First Card */}
         <div
           data-aos="fade-down-right"
           className="flex-1 bg-[#f5b9b9] shadow-lg rounded-lg px-6 py-8 flex flex-col md:flex-row items-center justify-between hover:scale-105 transition-transform duration-500"
@@ -119,7 +129,7 @@ function UserHome() {
           <img
             src="public/imageSecB.png"
             alt="Flying Books"
-            className="w-full max-w-xs sm:max-w-sm md:max-w-[250px]"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-[28 0px]"
           />
         </div>
       </div>
@@ -157,8 +167,7 @@ function UserHome() {
               </h1>
 
               <p class=" lg:max-w-lg mt-6 text-black ">
-                Get access by subcribing to our newsletter. Jump start your book
-                reading by quickly check through the popular book categories...
+                Subscribe to our newsletter and unlock access to over 100 free books! Jumpstart your reading journey by exploring our most popular categories and discover your next favorite story.
               </p>
 
               <h3 class="mt-6 text-lg font-medium text-blue-500">Mia Brown</h3>
@@ -206,12 +215,15 @@ function UserHome() {
 
         {/* Content */}
         <h2 className="text-center md:text-left mx-[80px] text-xl md:text-3xl text-gray-800 font-serif z-10 max-w-3xl">
-          Bring your story to life – join our writing community
+          Bring your story to life – join our community
         </h2>
 
-        <button className="z-10 px-6 py-2 mx-[100px] border-2 border-black rounded-full text-black hover:bg-black hover:text-white transition">
+        <Link to="/contact_us">
+           <button className="z-10 px-6 py-2 mx-[100px] border-2 border-black rounded-full text-black hover:bg-black hover:text-white transition">
           Contacts
         </button>
+        </Link>
+      
       </div>
       {/* end sec9 */}
 

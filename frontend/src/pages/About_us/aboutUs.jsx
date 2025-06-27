@@ -15,7 +15,7 @@ const AboutUs = () => {
     return (
         <>
             <Header />
-            <section className="bg-[#E1ECFE] py-16 px-4 min-h-[70vh] flex flex-col items-center justify-center relative">
+            <section className="bg-[#E1ECFE] py-16 px-4 min-h-[70vh] flex flex-col items-center justify-center relative mt-20">
                 {loading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-white/70 z-20">
                         <div className="w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>

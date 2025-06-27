@@ -13,8 +13,6 @@ function AdminPage() {
   const toggleModal = (open) => {
     setIsOpen(open);
 
-
-
   };
   const [selectedYear, setSelectedYear] = useState("2024");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -254,12 +252,12 @@ function AdminPage() {
 
 
           {/* tables */}
-          <di v className="flex items-center justify-between flex-wrap gap-3 mb-6">
-            <h2 className="text-xl font-semibold text-gray-800">Users</h2>
-            <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
-              2 members
+          <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
+            <h2 className="text-xl font-semibold text-gray-800">Users table</h2>
+            <span className="px-3 py-1 text-blue-600 bg-blue-100 rounded-full text-sm">
+              {users.length} users
             </span>
-          </di>
+          </div>
 
           {/* Table wrapper */}
           <div className="w-full overflow-x-auto">
@@ -301,6 +299,9 @@ function AdminPage() {
           <br />
           {/* Book List Table */}
           <h1 className="text-2xl font-semibold mx-4 mb-3 ">Book List</h1>
+          <span className="px-3 py-1 text-black font-bold bg-red-100 rounded-full text-sm float-end">
+              {books.length} Books
+            </span>
           <div className="flex flex-col ">
             <div className="overflow-x-auto">
               <div className="min-w-full inline-block align-middle">

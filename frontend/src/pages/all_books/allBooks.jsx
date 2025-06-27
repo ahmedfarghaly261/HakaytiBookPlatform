@@ -60,7 +60,7 @@ function AllBooks() {
   return (
     <>
       <Header />
-      <div className="px-4 py-8 max-w-7xl mx-auto">
+      <div className="px-4 py-8 max-w-7xl mx-auto mt-20">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
           All Books
         </h1>

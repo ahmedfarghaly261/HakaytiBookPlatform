@@ -28,7 +28,7 @@ const ContactUs = () => {
     return (
         <>
             <Header />
-            <section className='bg-[#E1ECFE] py-8 px-4 sm:px-6 lg:px-8 relative flex flex-col items-center justify-center min-h-[70vh]'>
+            <section className='bg-[#E1ECFE] py-8 px-4 sm:px-6 lg:px-8 relative flex flex-col items-center justify-center min-h-[70vh] mt-24'>
                 {pageLoading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-white/70 z-20">
                         <div className="w-16 h-16 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>

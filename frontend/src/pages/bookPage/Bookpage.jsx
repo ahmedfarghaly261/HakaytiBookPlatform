@@ -62,7 +62,7 @@ const BookPage = () => {
 
     // Login Modal Component
     const LoginPromptModal = () => (
-        <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center ${showLoginModal ? '' : 'hidden'}`}>
+        <div className={` fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center ${showLoginModal ? '' : 'hidden'}`}>
             <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Login Required</h3>
                 <p className="text-gray-600 mb-6">You must be logged in to listen to audiobooks.</p>
@@ -255,7 +255,7 @@ const BookPage = () => {
         <Header />
 
             {/* Book Details Section */}
-            <div className="flex bg-[#E1ECFE] p-10 rounded-lg shadow-lg  max-w-8xl mx-auto font-sans">
+            <div className=" mt-24 flex bg-[#E1ECFE] p-10 rounded-lg shadow-lg  max-w-8xl mx-auto font-sans">
                 {/* Book Image */}
                 <div className="w-1/3 flex justify-center items-start">
                     <img
