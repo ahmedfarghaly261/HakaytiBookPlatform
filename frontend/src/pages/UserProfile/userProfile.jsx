@@ -15,7 +15,17 @@ const UserProfile = () => {
             // Fetch user's favorites count
             fetch(`http://localhost:3001/api/favorites/${user.username || user.email}`)
                 .then(res => res.json())
-                .then(data => setFavCount(data.length))
+                .then(data => {
+                    let favs = [];
+                    if (Array.isArray(data)) {
+                        favs = data;
+                    } else if (data && Array.isArray(data.favorites)) {
+                        favs = data.favorites;
+                    }
+                    // Filter out falsy or empty objects
+                    const validFavs = favs.filter(fav => fav && Object.keys(fav).length > 0);
+                    setFavCount(validFavs.length);
+                })
                 .catch(() => setFavCount(0));
         }
     }, [user]);
@@ -41,7 +51,7 @@ const UserProfile = () => {
                                 onClick={() => navigate('/user/favorites')}
                                 title="View your favorite books"
                             >
-                                <span className="text-2xl font-bold text-[#3498DB]">{favCount}</span>
+                                <span className="text-2xl font-bold text-[#3498DB]">{favCount} </span>
                                 <span className="text-sm text-gray-600 mt-1">Favorites</span>
                             </button>
                             <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">

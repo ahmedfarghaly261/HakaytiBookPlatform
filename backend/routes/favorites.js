@@ -7,7 +7,11 @@ const mongoose = require('mongoose');
 router.get('/:user', async (req, res) => {
   try {
     const { user } = req.params;
-    const favorites = await Favorite.find({ user });
+    let favorites = await Favorite.find({ user });
+    // Filter out any null/undefined, empty objects, or missing bookId/bookModel
+    favorites = Array.isArray(favorites)
+      ? favorites.filter(fav => fav && Object.keys(fav.toObject ? fav.toObject() : fav).length > 0 && fav.bookId && fav.bookModel)
+      : [];
     res.json(favorites);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch favorites' });
