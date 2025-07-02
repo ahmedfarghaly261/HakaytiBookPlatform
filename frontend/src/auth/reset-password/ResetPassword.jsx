@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function ResetPassword() {
   const { token } = useParams();
@@ -73,7 +72,6 @@ function ResetPassword() {
             onClick={() => setShowPassword((prev) => !prev)}
             tabIndex={-1}
           >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
         <div className="mb-6 relative">
@@ -91,7 +89,6 @@ function ResetPassword() {
             onClick={() => setShowConfirmPassword((prev) => !prev)}
             tabIndex={-1}
           >
-            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
         <button

@@ -16,16 +16,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from uploads directory
+// Serve static files from uploads "Books images"
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Routs
 app.use('/api/auth', authRoutes);
 app.use('/api/books', booksRoutes);
 app.use('/api/specialbooks', specialBooksRoutes);
 app.use('/api/comments', commentsRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
-// Root route for welcome message
+// default route for welcome message on port 3001
 app.get('/', (req, res) => {
   res.send('Welcome to backend API!(APIs is running!!)');
 });

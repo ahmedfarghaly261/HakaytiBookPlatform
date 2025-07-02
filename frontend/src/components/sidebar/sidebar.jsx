@@ -283,6 +283,13 @@ const Sidebar = () => {
                                     ))}
                                 </select>
                             </div>
+                                <div className="">
+                                <label className="block text-sm text-gray-700 mb-1">Book Audio</label>
+
+                                <input type="file" />
+                            </div>
+                            
+                            
                             {/* publishedDate is now set automatically in backend */}
                             <div className="text-right">
                                 <button
@@ -355,6 +362,11 @@ const Sidebar = () => {
                                         <option key={cat} value={cat}>{cat}</option>
                                     ))}
                                 </select>
+                            </div>
+                            <div className="">
+                                <label className="block text-sm text-gray-700 mb-1">Book Audio</label>
+
+                                <input type="file" />
                             </div>
                             <div className="text-right">
                                 <button

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,7 @@ function Login() {
   const [forgotEmail, setForgotEmail] = useState("");
   const [forgotMsg, setForgotMsg] = useState("");
   const [forgotErr, setForgotErr] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { login } = useContext(UserContext);
 
@@ -157,10 +159,10 @@ function Login() {
 
                   <div className="relative">
                     <input
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
-                      className="w-full px-4 py-3 bg-white/90 border border-[#E1ECFE] rounded-lg text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#2d3d54] focus:ring-2 focus:ring-[#E1ECFE] transition-all duration-300"
+                      className="w-full px-4 py-3 bg-white/90 border border-[#E1ECFE] rounded-lg text-gray-700 placeholder-gray-500 focus:outline-none focus:border-[#2d3d54] focus:ring-2 focus:ring-[#E1ECFE] transition-all duration-300 pr-12"
                       placeholder="Enter your password"
                       required
                       value={password}
@@ -172,6 +174,14 @@ function Login() {
                     >
                       Password
                     </label>
+                    <button
+                      type="button"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                      tabIndex={-1}
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
                 </div>
                 <div className="mt-8 space-y-6">
