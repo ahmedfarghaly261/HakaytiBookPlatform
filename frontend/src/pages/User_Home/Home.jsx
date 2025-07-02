@@ -11,6 +11,8 @@ import NewReleases from "../../components/FeaturedCategorie/NewReleases";
 import image from "../../assets/image.png";
 import preloaderGif from "../../assets/preloader.gif";
 import preloader2 from "../../assets/prelod2.gif";
+import heroSecBG from "../../assets/heroSec-BG.png";
+
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -47,11 +49,11 @@ function UserHome() {
 <br />
 <br /> */}
       {/* hero sec1 */}
-      <section className="bg-[#E1ECFE] w-full py-16 overflow-x-hidden mt-20">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+      <section style={{ backgroundImage: `url(${heroSecBG})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="bg-[#E1ECFE] w-full py-16 overflow-x-hidden mt-20">
+        <div className="max-w-9xl mx-auto px-28  flex flex-col md:flex-row items-center justify-between gap-24 md:gap-24">
           <div className="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
-            <h1 className="text-5xl font-serif font-semibold text-gray-900 leading-tight">
-              Because Every <br /> Word Deserves to Be Heard
+            <h1 className="text-4xl font-serif font-semibold text-gray-900 leading-tight  lg:text-6xl ">
+              Because Every <br /> <span className="text-blue-500 font-bold">Word </span>  Deserves to Be  <span className="text-blue-500 font-bold">Heard  </span>
             </h1>
             <p className="text-lg text-gray-700 mt-4">
               From Page To Voice, Stories Come Alive Like Never Before.
@@ -66,8 +68,8 @@ function UserHome() {
           </div>
 
           <div className="relative w-full md:w-auto" data-aos="fade-up-left">
-            <div className=" lg:w-[680px] h-[px]">
-              <img src={image} alt="" className="w-15" />
+            <div className="lg:w-[750px] h-auto">
+              <img src={image} alt="" className="w-full max-w-[750px] h-auto object-contain" />
             </div>
           </div>
         </div>
