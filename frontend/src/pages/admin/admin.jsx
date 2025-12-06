@@ -108,7 +108,7 @@ function AdminPage() {
     <>
       <main className="flex flex-row ">
         {/* Sidebar - fixed width */}
-        <aside className="border-gray-200">
+        <aside className="border-gray-200 lg:sticky top-0 h-screen" >
           <Sidebar />
         </aside>
 

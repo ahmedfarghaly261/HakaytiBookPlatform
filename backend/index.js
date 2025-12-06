@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
 const booksRoutes = require('./routes/books');
@@ -31,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to backend API!(APIs is running!!)');
 });
 
-mongoose.connect('mongodb+srv://ahmedfarghaly201055:7Mt4a2DG1IR5a4Di@cluster0.ut7qger.mongodb.net/rawy?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ Connected to DB');
     app.listen(3001, () => {
